@@ -9,9 +9,29 @@
   /* background-color: #C7CCCD; */
   /* background-color: #BFC4C5; */
   /* background-color: #B8BDBE; */
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
+.logoContainer {
+  /* Additional styles if needed */
+}
+
 .logo {
+  /* Additional styles if needed */
+}
+
+.nav {
+  /* Styles for the navigation bar */
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  margin-left: 20px; /* Space between nav items */
 }
