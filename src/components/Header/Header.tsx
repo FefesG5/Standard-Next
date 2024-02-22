@@ -3,10 +3,11 @@ import React from "react";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import Link from "next/link";
+import { roboto, poppins } from "@/app/ui/fonts";
 
 const Header: React.FC = () => {
   return (
-    <header className={styles.header}>
+    <header className={`${poppins.className} ${styles.header}`}>
       <div className={styles.logoContainer}>
         <Image
           src="/next.svg" // Assuming you have a Next.js logo SVG in your public directory
