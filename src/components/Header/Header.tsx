@@ -23,7 +23,7 @@ const Header: React.FC = () => {
             <Link href="/about">About</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/contact-page">Contact Page</Link>
+            <Link href="/contact">Contact Page</Link>
           </li>
         </ul>
       </nav>
