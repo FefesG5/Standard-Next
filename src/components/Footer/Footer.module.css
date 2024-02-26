@@ -3,6 +3,8 @@
   width: 100%;
   padding: 1rem 0;
   background-color: #d1d6d7;
+  display: flex;
+  justify-content: center;
   /* background-color: #CDD2D3; */
   /* background-color: #C7CCCD; */
   /* background-color: #BFC4C5; */
@@ -17,5 +19,4 @@
 
 .logo {
   display: inline-block;
-  margin-top: 8px;
 }
