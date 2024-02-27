@@ -30,8 +30,13 @@
   display: flex;
   margin: 0;
   padding: 0;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .navItem {
-  margin-left: 20px; /* Space between nav items */
+  display: flex;
+  justify-content: center;
+  flex-grow: 1; /* Allows each item to grow equally */
+  padding: 0 10px;
 }
