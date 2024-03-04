@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./Footer.module.css";
+import { inter, poppins, roboto, cabin } from "@/app/ui/fonts";
 
 const Footer: React.FC = () => {
   return (
