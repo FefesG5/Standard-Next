@@ -1,13 +1,24 @@
 // Header.tsx
-import React from "react";
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { inter, poppins, roboto, cabin } from "@/app/ui/fonts";
 
 const Header: React.FC = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
   return (
     <header className={`${poppins.className} ${styles.header}`}>
+      {/* Logo Container */}
       <div className={styles.logoContainer}>
         <Link href="/">
           <Image
@@ -19,12 +30,22 @@ const Header: React.FC = () => {
           />
         </Link>
       </div>
-      <nav className={styles.nav}>
+
+      {/* Hamburger Icon */}
+      <button onClick={toggleSidebar} className={styles.hamburger}>
+        ☰
+      </button>
+
+      {/* Navigation */}
+      <nav
+        className={`${styles.nav} ${isSidebarOpen ? styles.navOpen : styles.nav}`}
+      >
         <ul className={styles.navList}>
-          <li className={styles.navItem}>
+          {/* Navigation Items */}
+          <li className={styles.navItem} onClick={closeSidebar}>
             <Link href="/about">About</Link>
           </li>
-          <li className={styles.navItem}>
+          <li className={styles.navItem} onClick={closeSidebar}>
             <Link href="/contact">Contact</Link>
           </li>
         </ul>

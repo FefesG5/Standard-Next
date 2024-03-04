@@ -21,17 +21,47 @@
   /* Additional styles if needed */
 }
 
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 2rem;
+}
+
+/* The regular navigation bar styles, visible on larger screens */
 .nav {
-  /* Styles for the navigation bar */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navOpen {
+  display: flex; /* Flex layout for the sidebar */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+  padding-top: 2rem; /* Optional: To avoid overlaying with the header */
+  z-index: 2000; /* Higher than other content */
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+}
+
+.navOpen {
+  transform: translateX(0); /* Resets transform to show the sidebar */
 }
 
 .navList {
   list-style: none;
-  display: flex;
   margin: 0;
   padding: 0;
   width: 100%;
-  justify-content: space-evenly;
 }
 
 .navItem {
@@ -39,4 +69,17 @@
   justify-content: center;
   flex-grow: 1; /* Allows each item to grow equally */
   padding: 0 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show hamburger icon */
+  }
+  .nav {
+    display: none; /* Hide the horizontal nav bar on smaller screens */
+  }
+  .navOpen {
+    display: flex; /* Show the sidebar when activated */
+  }
 }
