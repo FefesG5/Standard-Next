@@ -22,64 +22,42 @@
 }
 
 .hamburger {
-  display: none;
+  display: none; /* It hides the hamburger on larger screens by default */
   cursor: pointer;
   background: none;
   border: none;
   font-size: 2rem;
+  position: absolute;
+  top: 1rem; /* You can adjust the position as needed */
+  right: 1rem;
 }
 
-/* The regular navigation bar styles, visible on larger screens */
 .nav {
-  display: flex;
-  justify-content: space-evenly;
+  display: flex; /* Show the nav by default */
+  justify-content: flex-end;
   align-items: center;
-}
-
-.navOpen {
-  display: flex; /* Flex layout for the sidebar */
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally */
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 80%;
-  height: 100%;
-  background-color: #fff;
-  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
-  padding-top: 2rem; /* Optional: To avoid overlaying with the header */
-  z-index: 2000; /* Higher than other content */
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(100%);
-}
-
-.navOpen {
-  transform: translateX(0); /* Resets transform to show the sidebar */
-}
-
-.navList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   width: 100%;
 }
 
+.navList {
+  display: flex; /* Lays out nav items in a row */
+  list-style: none; /* Removes bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+  margin-left: auto; /* This will push the nav list to the right side */
+}
+
 .navItem {
-  display: flex;
-  justify-content: center;
-  flex-grow: 1; /* Allows each item to grow equally */
-  padding: 0 10px;
+  padding: 0 1rem;
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
   .hamburger {
-    display: block; /* Show hamburger icon */
+    display: block; /* This will show the hamburger menu on smaller screens */
   }
+
   .nav {
-    display: none; /* Hide the horizontal nav bar on smaller screens */
-  }
-  .navOpen {
-    display: flex; /* Show the sidebar when activated */
+    display: none; /* This will hide the nav bar on smaller screens */
   }
 }

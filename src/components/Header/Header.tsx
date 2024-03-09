@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import Link from "next/link";
+import Sidebar from "../Sidebar/Sidebar";
 import { inter, poppins, roboto, cabin } from "@/app/ui/fonts";
 
 const Header: React.FC = () => {
@@ -31,10 +32,15 @@ const Header: React.FC = () => {
         </Link>
       </div>
 
-      {/* Hamburger Icon */}
+      {/* Only show the hamburger icon on smaller screens */}
       <button onClick={toggleSidebar} className={styles.hamburger}>
         ☰
       </button>
+
+      {/* Conditional rendering of the Sidebar */}
+      {isSidebarOpen && (
+        <Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
+      )}
 
       {/* Navigation */}
       <nav
