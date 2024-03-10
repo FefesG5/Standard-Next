@@ -2,7 +2,7 @@
 .footer {
   width: 100%;
   padding: 1rem 0;
-  background-color: #d1d6d7;
+  background-color: var(--footer-bg-color);
   display: flex;
   justify-content: center;
   /* background-color: #CDD2D3; */

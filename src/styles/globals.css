@@ -3,25 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220; /* Light theme gradient start color */
-  --background-end-rgb: 255, 255, 255; /* Light theme gradient end color */
+  /* Light theme variables*/
+  --header-bg-color: #eee8d5;
+  --footer-bg-color: #eee8d5;
+  --body-text-color: #657b83;
+  --primary-color: #268bd2;
+  --secondary-color: #2aa198;
+  --accent-color: #6c71c4;
+  --link-color: #268bd2;
+  --link-hover-color: #93a1a1;
+  --background-color: #fdf6e3;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0; /* Dark theme gradient start color */
-    --background-end-rgb: 23, 25, 35;
+    /* Dark Theme Variables Matching VS Code Colors */
+    --header-bg-color: #1e1e1e;
+    --footer-bg-color: #1e1e1e;
+    --body-bg-color: #252526;
+    --text-color: #d4d4d4;
+    --primary-color: #569cd6;
+    --secondary-color: #c586c0;
+    --primary-hover: #7cb9f2;
+    --secondary-hover: #dcbdfb;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--foreground-color);
   background: linear-gradient(
     to bottom,
-    rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb))
+    var(--background-start-color),
+    var(--background-end-color)
   );
   min-height: 100vh;
 }
@@ -29,5 +42,13 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .hover\:primary:hover {
+    background-color: var(--primary-hover);
+  }
+
+  .hover\:secondary:hover {
+    background-color: var(--secondary-hover);
   }
 }
