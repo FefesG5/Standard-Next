@@ -59,11 +59,10 @@ const Header: React.FC = () => {
         </ul>
       </nav>
 
-        {/* Render theme changer button in header */}
+      {/* Render theme changer button in header */}
       <button onClick={toggleTheme} className={styles.themeChanger}>
         Switch to {theme === "light" ? "Dark" : "Light"} Theme
       </button>
-
     </header>
   );
 };

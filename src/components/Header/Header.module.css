@@ -32,6 +32,11 @@
   right: 1rem;
 }
 
+.themeChanger {
+  display: none; /* Hide by default */
+  /* ...other button styling... */
+}
+
 .nav {
   display: flex; /* Show the nav by default */
   justify-content: flex-end;

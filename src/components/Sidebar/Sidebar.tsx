@@ -1,5 +1,6 @@
 // Sidebar.tsx
-import { useState, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect } from "react";
+import { ThemeContext } from "@/contexts/ThemeContext";
 import Link from "next/link";
 import styles from "./Sidebar.module.css";
 
@@ -10,6 +11,7 @@ interface SidebarProps {
 
 const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -41,6 +43,11 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
           <Link href="/contact">Contact</Link>
         </li>
       </ul>
+
+      {/* Add the theme changer button in the sidebar */}
+      <button onClick={toggleTheme} className={styles.themeChanger}>
+        Switch to {theme === "light" ? "Dark" : "Light"} Theme
+      </button>
     </aside>
   );
 };
