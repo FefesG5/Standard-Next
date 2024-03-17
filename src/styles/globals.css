@@ -12,9 +12,9 @@
 
 [data-theme="dark"] {
   /* Dark Theme Variables Matching VS Code Colors */
-  --header-bg-color: #1e1e1e;
-  --footer-bg-color: #1e1e1e;
-  --body-text-color: #d4d4d4;
+  --header-bg-color: #474E68;
+  --footer-bg-color: #474E68;
+  --body-text-color: #cccccc;
   --background-image: url();
 }
 
