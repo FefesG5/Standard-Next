@@ -66,3 +66,10 @@
     display: none; /* This will hide the nav bar on smaller screens */
   }
 }
+
+@media (min-width: 769px) {
+  .themeChanger {
+    display: block; /* This will show the theme switch button on larger screens */
+    /* Add any additional styling for the button here */
+  }
+}
