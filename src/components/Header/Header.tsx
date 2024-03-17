@@ -1,13 +1,15 @@
 // Header.tsx
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Image from "next/image";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import Sidebar from "../Sidebar/Sidebar";
+import { ThemeContext } from "@/contexts/ThemeContext";
 import { inter, poppins, roboto, cabin } from "@/app/ui/fonts";
 
 const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -56,6 +58,12 @@ const Header: React.FC = () => {
           </li>
         </ul>
       </nav>
+
+        {/* Render theme changer button in header */}
+      <button onClick={toggleTheme} className={styles.themeChanger}>
+        Switch to {theme === "light" ? "Dark" : "Light"} Theme
+      </button>
+
     </header>
   );
 };

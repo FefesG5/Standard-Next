@@ -7,35 +7,19 @@
   --header-bg-color: #eee8d5;
   --footer-bg-color: #eee8d5;
   --body-text-color: #657b83;
-  --primary-color: #268bd2;
-  --secondary-color: #2aa198;
-  --accent-color: #6c71c4;
-  --link-color: #268bd2;
-  --link-hover-color: #93a1a1;
-  --background-color: #fdf6e3;
+  --background-image: url();
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+[data-theme="dark"] {
     /* Dark Theme Variables Matching VS Code Colors */
     --header-bg-color: #1e1e1e;
     --footer-bg-color: #1e1e1e;
-    --body-bg-color: #252526;
-    --text-color: #d4d4d4;
-    --primary-color: #569cd6;
-    --secondary-color: #c586c0;
-    --primary-hover: #7cb9f2;
-    --secondary-hover: #dcbdfb;
-  }
+    --body-text-color: #d4d4d4;
+    --background-image: url();
 }
 
 body {
-  color: var(--foreground-color);
-  background: linear-gradient(
-    to bottom,
-    var(--background-start-color),
-    var(--background-end-color)
-  );
+  color: var(--body-text-color);
   min-height: 100vh;
 }
 
