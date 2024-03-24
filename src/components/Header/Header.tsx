@@ -4,6 +4,8 @@ import Image from "next/image";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import Sidebar from "../Sidebar/Sidebar";
+import NavItem from "../NavItem/NavItem";
+import navigationLinks from "../../config/navigation.json";
 import { ThemeContext } from "@/contexts/ThemeContext";
 import { inter, poppins, roboto, cabin } from "@/app/ui/fonts";
 
@@ -50,12 +52,15 @@ const Header: React.FC = () => {
       >
         <ul className={styles.navList}>
           {/* Navigation Items */}
-          <li className={styles.navItem} onClick={closeSidebar}>
-            <Link href="/about">About</Link>
-          </li>
-          <li className={styles.navItem} onClick={closeSidebar}>
-            <Link href="/contact">Contact</Link>
-          </li>
+          {navigationLinks.map((nav) => (
+            <NavItem
+              key={nav.href}
+              href={nav.href}
+              label={nav.label}
+              variant={"header"}
+              closeSidebar={closeSidebar}
+            />
+          ))}
         </ul>
       </nav>
 
