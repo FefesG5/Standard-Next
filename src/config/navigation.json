@@ -1,0 +1,14 @@
+[
+  {
+    "href": "/about",
+    "label": "About"
+  },
+  {
+    "href": "/contact",
+    "label": "Contact"
+  },
+  {
+    "href": "/admin-access",
+    "label": "Administrator Access"
+  }
+]
