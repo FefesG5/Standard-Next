@@ -8,14 +8,16 @@
   --footer-bg-color: #eee8d5;
   --body-text-color: #657b83;
   --background-image: url("/background-theme-light.webp");
+  --primary-hover: #dcd0c0;
 }
 
 [data-theme="dark"] {
-  /* Dark Theme Variables Matching VS Code Colors */
-  --header-bg-color: #474E68;
-  --footer-bg-color: #474E68;
-  --body-text-color: #cccccc;
+  /* Dark Theme Variables */
+  --header-bg-color: #263238;
+  --footer-bg-color: #263238;
+  --body-text-color: #eceff1;
   --background-image: url("/background-theme-dark.webp");
+  --primary-hover: #2e3e50;
 }
 
 body {
