@@ -8,7 +8,7 @@
   --footer-bg-color: #eee8d5;
   --body-text-color: #657b83;
   --background-image: url("/background-theme-light.webp");
-  --primary-hover: #dcd0c0;
+  --sidebar-bg-hover: #dcd0c0;
 }
 
 [data-theme="dark"] {
@@ -17,7 +17,7 @@
   --footer-bg-color: #263238;
   --body-text-color: #eceff1;
   --background-image: url("/background-theme-dark.webp");
-  --primary-hover: #2e3e50;
+  --sidebar-bg-hover: #2e3e50;
 }
 
 body {
@@ -28,13 +28,5 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-
-  .hover\:primary:hover {
-    background-color: var(--primary-hover);
-  }
-
-  .hover\:secondary:hover {
-    background-color: var(--secondary-hover);
   }
 }

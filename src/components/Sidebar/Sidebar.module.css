@@ -38,7 +38,7 @@
 }
 
 .navItem:hover {
-  background-color: var(--primary-hover, #ddd);
+  background-color: var(--sidebar-bg-hover);
 }
 
 .hamburger {
