@@ -1,7 +1,8 @@
 // Sidebar.tsx
 import { useContext, useRef, useEffect } from "react";
 import { ThemeContext } from "@/contexts/ThemeContext";
-import Link from "next/link";
+import navigationLinks from "../../config/navigation.json";
+import NavItem from "../NavItem/NavItem";
 import styles from "./Sidebar.module.css";
 
 interface SidebarProps {
@@ -36,12 +37,15 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
       {/* ... sidebar contents ... */}
       <ul className={styles.navList}>
         {/* Navigation Items */}
-        <li className={styles.navItem} onClick={closeSidebar}>
-          <Link href="/about">About</Link>
-        </li>
-        <li className={styles.navItem} onClick={closeSidebar}>
-          <Link href="/contact">Contact</Link>
-        </li>
+        {navigationLinks.map((nav) => (
+          <NavItem
+            key={nav.href}
+            href={nav.href}
+            label={nav.label}
+            variant={"sidebar"}
+            closeSidebar={closeSidebar}
+          />
+        ))}
       </ul>
 
       {/* Add the theme changer button in the sidebar */}
