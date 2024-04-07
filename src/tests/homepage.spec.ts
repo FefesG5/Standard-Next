@@ -5,6 +5,13 @@ test.describe("Home Page test", () => {
     await page.goto("http://localhost:3000");
   });
 
+  test.describe("Navigation Tests", () => {
+    test("navigation links are correctly set", async ({ page }) => {
+      const aboutLink = page.locator('[data-testid="nav-about"]');
+      await expect(aboutLink).toHaveAttribute("href", "/about");
+    });
+  });
+
   test("Home Page document title is Create Next App", async ({ page }) => {
     await expect(page).toHaveTitle(/Create Next App/i);
   });
