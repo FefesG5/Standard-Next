@@ -9,6 +9,9 @@ test.describe("Home Page test", () => {
     test("navigation links are correctly set", async ({ page }) => {
       const aboutLink = page.locator('[data-testid="nav-about"]');
       await expect(aboutLink).toHaveAttribute("href", "/about");
+
+      const contactLink = page.locator('[data-testid="nav-contact"]');
+      await expect(contactLink).toHaveAttribute("href", "/contact");
     });
   });
 
