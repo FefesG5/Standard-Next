@@ -16,6 +16,15 @@ test.describe("Home Page Tests", () => {
       const contactLink = page.locator('[data-testid="nav-contact"]');
       await expect(contactLink).toHaveAttribute("href", "/contact");
     });
+
+    test("Administrator Access link navigates to the correct page", async ({
+      page,
+    }) => {
+      const adminAccessLink = page.locator(
+        '[data-testid="nav-administrator-access"]',
+      );
+      await expect(adminAccessLink).toHaveAttribute("href", "/admin-access");
+    });
   });
 
   test("Home Page has the correct document title", async ({ page }) => {
