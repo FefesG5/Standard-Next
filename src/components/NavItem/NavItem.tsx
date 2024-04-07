@@ -26,7 +26,9 @@ const NavItem: React.FC<NavItemProps> = ({
 
   return (
     <li className={getClassName()} onClick={closeSidebar}>
-      <Link href={href}>{label}</Link>
+      <Link data-testid={`nav-${label.toLowerCase()}`} href={href}>
+        {label}
+      </Link>
     </li>
   );
 };
