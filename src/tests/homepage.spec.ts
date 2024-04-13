@@ -35,4 +35,19 @@ test.describe("Home Page Tests", () => {
     const heading = page.locator("h1", { hasText: "Home Page" });
     await expect(heading).toBeVisible();
   });
+
+  test("sidebar functionality", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 });
+
+    const hamburger = page.locator("button", { hasText: "☰" });
+    await expect(hamburger).toBeVisible();
+    await hamburger.click();
+
+    const sidebar = page.locator("aside");
+    await expect(sidebar).toBeVisible();
+
+    const outsideArea = page.locator("header");
+    await outsideArea.click();
+    await expect(sidebar).not.toBeVisible();
+  });
 });
