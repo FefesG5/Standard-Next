@@ -37,6 +37,11 @@ test.describe("Home Page Tests", () => {
     await expect(heading).toBeVisible();
   });
 
+  test("should toggle the theme between light and dark", async ({ page }) => {
+    await page.click('button:has-text("Switch to Dark Theme")');
+    await page.click('button:has-text("Switch to Light Theme")');
+  });
+
   test("sidebar functionality", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
 
