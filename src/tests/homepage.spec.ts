@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import navigationLinks from "@/config/navigation.json";
 
 test.describe("Home Page Tests", () => {
   test.beforeEach(async ({ page }) => {
@@ -49,5 +50,25 @@ test.describe("Home Page Tests", () => {
     const outsideArea = page.locator("header");
     await outsideArea.click();
     await expect(sidebar).not.toBeVisible();
+  });
+
+  test.describe("Sidebar navigation items", () => {
+    test.beforeEach(async ({ page }) => {
+      await page.goto("http://localhost:3000");
+      await page.setViewportSize({ width: 375, height: 667 });
+      const hamburger = page.locator("button", { hasText: "☰" });
+      await hamburger.click();
+    });
+
+    for (const link of navigationLinks) {
+      test(`"${link.label}" link navigates to ${link.href} and closes sidebar`, async ({
+        page,
+      }) => {
+        await page.click(`text=${link.label}`);
+        await expect(page).toHaveURL(`http://localhost:3000${link.href}`);
+
+        await expect(page.locator(".sidebar")).not.toBeVisible();
+      });
+    }
   });
 });
