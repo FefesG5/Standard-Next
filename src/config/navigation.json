@@ -4,6 +4,10 @@
     "label": "About"
   },
   {
+    "href": "/access",
+    "label": "Account"
+  },
+  {
     "href": "/contact",
     "label": "Contact"
   },
