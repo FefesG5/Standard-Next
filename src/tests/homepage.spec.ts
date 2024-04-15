@@ -77,8 +77,14 @@ test.describe("Home Page Tests", () => {
     }
   });
 
-  test("footer functionality", async ({ page }) => {
+  test("footer should be visible", async ({ page }) => {
     const footer = page.locator("footer");
     await expect(footer).toBeVisible();
+  });
+
+  test("footer should contain link to Vercel", async ({ page }) => {
+    const vercelLink = page.locator("footer a[href='https://vercel.com']");
+    await expect(vercelLink).toBeVisible();
+    await expect(vercelLink).toHaveAttribute("target", "_blank");
   });
 });
