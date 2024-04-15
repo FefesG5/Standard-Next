@@ -87,4 +87,10 @@ test.describe("Home Page Tests", () => {
     await expect(vercelLink).toBeVisible();
     await expect(vercelLink).toHaveAttribute("target", "_blank");
   });
+
+  test("footer should display the Vercel logo", async ({ page }) => {
+    const vercelLogo = page.locator("footer img[alt='Vercel Logo']");
+    await expect(vercelLogo).toBeVisible();
+    await expect(vercelLogo).toHaveAttribute("src", "/vercel.svg");
+  });
 });
