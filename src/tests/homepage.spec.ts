@@ -76,4 +76,9 @@ test.describe("Home Page Tests", () => {
       });
     }
   });
+
+  test("footer functionality", async ({ page }) => {
+    const footer = page.locator("footer");
+    await expect(footer).toBeVisible();
+  });
 });
