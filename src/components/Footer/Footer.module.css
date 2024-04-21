@@ -10,7 +10,7 @@
   /* background-color: #BFC4C5; */
   /* background-color: #B8BDBE; */
 
-  color: white;
+  color: var(--body-text-color);
   text-align: center;
   position: relative;
   bottom: 0;
