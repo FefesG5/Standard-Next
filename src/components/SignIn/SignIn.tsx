@@ -5,11 +5,12 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { useState } from "react";
+import { app } from "../../../firebase.config";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const auth = getAuth();
+  const auth = getAuth(app);
 
   const sendEmailLink = () => {
     const actionCodeSettings = {
