@@ -6,6 +6,7 @@ import {
 } from "firebase/auth";
 import { useState } from "react";
 import { app } from "../../../firebase.config";
+import styles from "./SignIn.module.css";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -43,16 +44,21 @@ const SignIn = () => {
   };
 
   return (
-    <div>
+    <div className={styles.signInContainer}>
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter your email"
+        className={styles.emailInputField}
       />
-      <button onClick={sendEmailLink}>Sign in with Email Link</button>
-      <button onClick={signInWithGoogle}>Sign in Google</button>
-      {message && <p>{message}</p>}
+      <button onClick={sendEmailLink} className={styles.signInButton}>
+        Sign in with Email Link
+      </button>
+      <button onClick={signInWithGoogle} className={styles.signInButton}>
+        Sign in with Google
+      </button>
+      {message && <p className={styles.signInMessage}>{message}</p>}
     </div>
   );
 };
