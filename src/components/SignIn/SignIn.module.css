@@ -46,6 +46,7 @@
 
 .signInMessage {
   margin-top: 1rem;
-  color: #ff0000;
+  color: var(--error-message-text-color);
   font-size: 0.875rem;
+  font-weight: bold;
 }
