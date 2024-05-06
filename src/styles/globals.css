@@ -9,6 +9,10 @@
   --body-text-color: #1a1a1a;
   --background-image: url("/background-theme-light.webp");
   --sidebar-bg-hover: #dcd0c0;
+
+  --signin-container-bg-color: #eee8d5; /* Placeholder color (need to change later) */
+  --signin-btn-bg-color: #1a73e8;
+  --signin-btn-hover-bg-color: #1669c1;
 }
 
 [data-theme="dark"] {
@@ -18,6 +22,10 @@
   --body-text-color: #eceff1;
   --background-image: url("/background-theme-dark.webp");
   --sidebar-bg-hover: #2e3e50;
+
+  --signin-container-bg-color: #263238; /* Placeholder color (need to change later) */
+  --signin-btn-bg-color: #2196f3; /* Blue */
+  --signin-btn-hover-bg-color: #1976d2;
 }
 
 body {
