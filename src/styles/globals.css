@@ -16,6 +16,8 @@
   --signin-input-bg-color: #f7f7f7;
   --signin-input-border-color: #cccccc;
   --signin-text-color: #f0f0f0;
+
+  --error-message-text-color: #d32f2f;
 }
 
 [data-theme="dark"] {
@@ -32,6 +34,8 @@
   --signin-input-bg-color: #455a64;
   --signin-input-border-color: #4f5b62;
   --signin-text-color: #eceff1;
+
+  --error-message-text-color: #d74444;
 }
 
 body {
