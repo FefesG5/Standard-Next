@@ -1,0 +1,50 @@
+.signInContainer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--signin-container-bg-color);
+  border: 1px solid var(--signin-container-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.emailInputField {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.emailInputField:focus {
+  border-color: #0070f3;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+}
+
+.signInButton {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  background-color: var(--signin-btn-bg-color);
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.signInButton:hover {
+  background-color: var(--signin-btn-hover-bg-color);
+}
+
+.signInMessage {
+  margin-top: 1rem;
+  color: #ff0000;
+  font-size: 0.875rem;
+}
