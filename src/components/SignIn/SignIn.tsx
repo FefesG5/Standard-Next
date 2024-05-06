@@ -14,7 +14,7 @@ const SignIn = () => {
 
   const sendEmailLink = () => {
     const actionCodeSettings = {
-      url: "http://localhost:3000/finishSignUp",
+      url: "http://localhost:3000/auth/verifyEmailSignIn",
       handleCodeInApp: true,
     };
 
@@ -33,10 +33,11 @@ const SignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
+        console.log("Google Sign-In result:", result);
         setMessage("Signed in with Google successfully.");
       })
       .catch((error) => {
-        console.error(error);
+        console.error("Error during Google sign-in:", error);
         setMessage("An error occurred during Google sign-in.");
       });
   };
