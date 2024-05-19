@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   getAuth,
   sendSignInLinkToEmail,
@@ -55,8 +56,15 @@ const SignIn = () => {
       <button onClick={sendEmailLink} className={styles.signInButton}>
         Sign in with Email Link
       </button>
-      <button onClick={signInWithGoogle} className={styles.signInButton}>
-        Sign in with Google
+      <button onClick={signInWithGoogle} className={styles.googleSignInButton}>
+        <Image
+          src="/web_neutral_rd_na.svg"
+          alt="Google Sign-in Logo"
+          width={30}
+          height={30}
+          className={styles.googleIcon}
+        />
+        <span className={styles.googleSignInText}>Sign in with Google</span>
       </button>
       {message && <p className={styles.signInMessage}>{message}</p>}
     </div>
