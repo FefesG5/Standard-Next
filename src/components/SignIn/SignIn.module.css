@@ -26,9 +26,11 @@
 }
 
 .signInButton {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  padding: 1rem;
+  padding: 0.45rem;
   margin: 0.5rem 0;
   background-color: var(--signin-btn-bg-color);
   color: var(--signin-text-color);
@@ -42,6 +44,10 @@
 
 .signInButton:hover {
   background-color: var(--signin-btn-hover-bg-color);
+}
+
+.emailIcon {
+  margin-right: 0.5rem;
 }
 
 .googleIcon {
