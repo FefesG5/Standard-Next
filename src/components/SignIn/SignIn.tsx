@@ -54,7 +54,14 @@ const SignIn = () => {
         className={styles.emailInputField}
       />
       <button onClick={sendEmailLink} className={styles.signInButton}>
-        Sign in with Email Link
+        <Image
+          src="/email-icon.png"
+          alt="Email Sign-in Icon"
+          width={40}
+          height={40}
+          className={styles.emailIcon}
+        />
+        <span className={styles.emailSignInText}>Sign in with Email Link</span>
       </button>
       <button onClick={signInWithGoogle} className={styles.googleSignInButton}>
         <Image
