@@ -15,12 +15,7 @@ const Access: React.FC = () => {
 
     return () => unsubscribe();
   }, [auth]);
-  return (
-    <>
-      <h1>Access Component</h1>
-      {user ? <SignOutButton /> : <SignIn />}
-    </>
-  );
+  return <>{user ? <SignOutButton /> : <SignIn />}</>;
 };
 
 export default Access;
