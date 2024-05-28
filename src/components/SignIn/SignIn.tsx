@@ -61,7 +61,7 @@ const SignIn = () => {
           height={40}
           className={styles.emailIcon}
         />
-        <span className={styles.emailSignInText}>Sign in with Email Link</span>
+        <span className={styles.emailSignInText}>Sign in with Email link</span>
       </button>
       <button onClick={signInWithGoogle} className={styles.googleSignInButton}>
         <Image
