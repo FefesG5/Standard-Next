@@ -1,6 +1,7 @@
 import { getAuth, signOut } from "firebase/auth";
 import { useState } from "react";
 import { app } from "../../../firebase.config";
+import styles from "./signoutbutton.module.css";
 
 const SignOutButton = () => {
   const [message, setMessage] = useState("");
@@ -20,8 +21,10 @@ const SignOutButton = () => {
 
   return (
     <div>
-      <button onClick={signOutUser}>Sign Out</button>
-      {message && <p>{message}</p>}
+      <button className={styles.button} onClick={signOutUser}>
+        Sign Out
+      </button>
+      {message && <p className={styles.message}>{message}</p>}
     </div>
   );
 };
