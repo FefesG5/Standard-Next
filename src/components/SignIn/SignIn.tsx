@@ -35,7 +35,7 @@ const SignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log("Google Sign-In result:", result);
+        console.log("Signed in with Google successfully.");
         setMessage("Signed in with Google successfully.");
       })
       .catch((error) => {
