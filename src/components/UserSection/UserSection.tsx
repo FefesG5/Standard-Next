@@ -5,9 +5,10 @@ import Image from "next/image";
 
 interface UserSectionProps {
   user: User;
+  signOutUser: () => Promise<void>;
 }
 
-const UserSection: React.FC<UserSectionProps> = ({ user }) => {
+const UserSection: React.FC<UserSectionProps> = ({ user, signOutUser }) => {
   return (
     <div className={styles.userSection}>
       <Image
@@ -19,7 +20,8 @@ const UserSection: React.FC<UserSectionProps> = ({ user }) => {
       />
       <h3 className={styles.userName}>{user.displayName || "User"}</h3>
       <p className={styles.userEmail}>{user.email}</p>
-      <SignOutButton />
+      <SignOutButton signOutUser={signOutUser} />{" "}
+      {/* Pass signOutUser to SignOutButton */}
     </div>
   );
 };
