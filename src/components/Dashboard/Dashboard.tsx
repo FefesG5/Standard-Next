@@ -2,7 +2,6 @@ import Link from "next/link";
 import UserSection from "../UserSection/UserSection";
 import { User } from "firebase/auth";
 import styles from "./Dashboard.module.css";
-import navigationLinks from "../../config/navigation.json";
 
 type DashboardProps = {
   signOutUser: () => Promise<void>;
@@ -10,12 +9,13 @@ type DashboardProps = {
 };
 
 const Dashboard = ({ signOutUser, user }: DashboardProps) => {
-  console.log(navigationLinks);
   return (
     <div className={styles.dashboard}>
-      <div className={styles.userSectionWrapper}>
-        <UserSection user={user} /> {/* Pass user directly to UserSection */}
+      {/* Full-width UserSection below the header */}
+      <div className={styles.userBar}>
+        <UserSection user={user} signOutUser={signOutUser} />
       </div>
+
       <div className={styles.dashboardContent}>
         <nav className={styles.dashboardNav}>
           <ul className={styles.navList}>
