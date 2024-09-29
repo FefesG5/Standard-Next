@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { app } from "../../firebase.config";
 import Spinner from "@/components/Spinner/Spinner";
 import SignIn from "@/components/SignIn/SignIn";
-import UserSection from "@/components/UserSection/UserSection";
+import Dashboard from "@/components/Dashboard/Dashboard"; // Import Dashboard
 
 const Access: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -23,7 +23,16 @@ const Access: React.FC = () => {
     return <Spinner />;
   }
 
-  return <>{user ? <UserSection user={user} /> : <SignIn />}</>;
+  // Render Dashboard when user is authenticated
+  return (
+    <>
+      {user ? (
+        <Dashboard user={user} signOutUser={() => auth.signOut()} />
+      ) : (
+        <SignIn />
+      )}
+    </>
+  );
 };
 
 export default Access;
