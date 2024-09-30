@@ -65,7 +65,7 @@ const SignIn = () => {
       </button>
       <button onClick={signInWithGoogle} className={styles.googleSignInButton}>
         <Image
-          src="/web_neutral_rd_na.svg"
+          src="/web-neutral-rd-na.svg"
           alt="Google Sign-in Logo"
           width={30}
           height={30}
