@@ -1,0 +1,22 @@
+[
+  {
+    "href": "/dashboard",
+    "label": "Dashboard",
+    "icon": "/dashboard-icon.svg"
+  },
+  {
+    "href": "/profile",
+    "label": "Profile",
+    "icon": "/person-outline-icon.svg"
+  },
+  {
+    "href": "/settings",
+    "label": "Settings",
+    "icon": "/settings-icon.svg"
+  },
+  {
+    "href": "/help",
+    "label": "Help",
+    "icon": "/help-icon.svg"
+  }
+]
