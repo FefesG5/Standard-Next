@@ -21,16 +21,13 @@ const Dashboard = ({ signOutUser, user }: DashboardProps) => {
       </div>
 
       <div className="flex flex-1">
-        <nav
-          className="w-64 p-4 shadow-md"
-          style={{ backgroundColor: "var(--signin-container-bg-color)" }}
-        >
+        <nav className="p-4 shadow-md bg-[var(--signin-container-bg-color)] w-16 md:w-64">
           <ul className="list-none p-0 m-0">
             {dashboardNav.map((item) => (
               <li className="mb-4" key={item.href}>
                 <Link
                   href={item.href}
-                  className="flex items-center text-lg p-2 rounded text-[color:var(--nav-text-color)] hover:bg-[var(--nav-hover-bg-color)] hover:text-[var(--nav-text-hover-color)]"
+                  className="flex items-center justify-center md:justify-start text-lg p-2 rounded text-[color:var(--nav-text-color)] hover:bg-[var(--nav-hover-bg-color)] hover:text-[var(--nav-text-hover-color)]"
                 >
                   {item.icon && (
                     <Image
@@ -38,10 +35,10 @@ const Dashboard = ({ signOutUser, user }: DashboardProps) => {
                       alt={`${item.label} icon`}
                       width={24}
                       height={24}
-                      className="mr-2"
+                      className="md:mr-2"
                     />
                   )}
-                  <span>{item.label}</span>
+                  <span className="hidden md:inline">{item.label}</span>
                 </Link>
               </li>
             ))}
