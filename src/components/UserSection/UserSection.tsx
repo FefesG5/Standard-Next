@@ -1,7 +1,6 @@
 import { User } from "firebase/auth";
-import styles from "./UserSection.module.css";
-import SignOutButton from "../SignOutButton/SignOutButton";
 import Image from "next/image";
+import SignOutButton from "../SignOutButton/SignOutButton";
 
 interface UserSectionProps {
   user: User;
@@ -10,18 +9,23 @@ interface UserSectionProps {
 
 const UserSection: React.FC<UserSectionProps> = ({ user, signOutUser }) => {
   return (
-    <div className={styles.userSection}>
-      <Image
-        src={user.photoURL || "/user-icon.svg"}
-        alt={`${user.displayName || "User"}'s profile`}
-        width={50}
-        height={50}
-        className={styles.profileImage}
-      />
-      <h3 className={styles.userName}>{user.displayName || "User"}</h3>
-      <p className={styles.userEmail}>{user.email}</p>
-      <SignOutButton signOutUser={signOutUser} />{" "}
-      {/* Pass signOutUser to SignOutButton */}
+    <div className="flex items-center justify-between p-4 bg-gray-100 border-b border-gray-300 shadow-md">
+      <div className="flex items-center space-x-4">
+        <Image
+          src={user.photoURL || "/user-icon.svg"}
+          alt={`${user.displayName || "User"}'s profile`}
+          width={50}
+          height={50}
+          className="rounded-full border-2 border-gray-300 shadow-sm"
+        />
+        <div className="flex flex-col">
+          <h3 className="text-lg font-semibold text-gray-800">
+            {user.displayName || "User"}
+          </h3>
+          <p className="text-sm text-gray-500">{user.email}</p>
+        </div>
+      </div>
+      <SignOutButton signOutUser={signOutUser} />
     </div>
   );
 };
