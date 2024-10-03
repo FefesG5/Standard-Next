@@ -12,11 +12,8 @@ type DashboardProps = {
 const Dashboard = ({ signOutUser, user }: DashboardProps) => {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Full-width UserSection below the header */}
-      <div
-        className="w-full p-4 shadow-md flex justify-between items-center"
-        style={{ backgroundColor: "var(--signin-container-bg-color)" }}
-      >
+      {/* Distinct UserSection bar under the header */}
+      <div className="w-full bg-white shadow-md">
         <UserSection user={user} signOutUser={signOutUser} />
       </div>
 
