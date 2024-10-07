@@ -18,7 +18,7 @@ const Dashboard = ({ signOutUser, user }: DashboardProps) => {
       </div>
 
       <div className="flex flex-1">
-        <nav className="p-4 shadow-md bg-[var(--signin-container-bg-color)] w-16 md:w-64">
+        <nav className="p-4 shadow-md bg-[var(--sidebar-bg-hover)] w-16 md:w-64">
           <ul className="list-none p-0 m-0">
             {dashboardNav.map((item) => (
               <li className="mb-4" key={item.href}>
