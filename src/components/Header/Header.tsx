@@ -11,8 +11,9 @@ const Header: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
 
+  // Toggle the sidebar state
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen((prev) => !prev);
   };
 
   const closeSidebar = () => {
@@ -51,15 +52,18 @@ const Header: React.FC = () => {
       {/* Hamburger Icon for Smaller Screens */}
       <button
         onClick={toggleSidebar}
-        className="lg:hidden flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--body-text-color)]"
+        className="lg:hidden flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-[var(--body-text-color)]"
       >
         <Image src="/menu-icon.svg" alt="Menu Icon" width={24} height={24} />
       </button>
 
       {/* Sidebar rendering */}
       {isSidebarOpen && (
-        <div className="fixed top-0 left-0 h-full w-64 bg-gray-800 p-6 transform transition-transform duration-300 ease-in-out lg:hidden">
-          <Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
+        <div className="fixed top-0 left-0 h-full w-full bg-black bg-opacity-50 z-40 lg:hidden">
+          {/* Sidebar component */}
+          <div className="fixed top-0 left-0 h-full w-64">
+            <Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
+          </div>
         </div>
       )}
 
