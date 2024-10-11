@@ -2,6 +2,7 @@ import { useContext, useRef, useEffect } from "react";
 import { ThemeContext } from "@/contexts/ThemeContext";
 import navigationLinks from "../../config/navigation.json";
 import NavItem from "../NavItem/NavItem";
+import Image from "next/image";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -34,6 +35,19 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
         isOpen ? "translate-x-0" : "translate-x-full"
       } w-64 p-6 flex flex-col items-center`}
     >
+      {/* Close Button */}
+      <button
+        onClick={closeSidebar}
+        className="self-end p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-gray-500"
+      >
+        <Image
+          src="/close-icon.svg"
+          alt="Close Sidebar"
+          width={24}
+          height={24}
+        />
+      </button>
+
       {/* Navigation List */}
       <ul className="list-none w-full p-0 m-0">
         {navigationLinks.map((nav) => (
