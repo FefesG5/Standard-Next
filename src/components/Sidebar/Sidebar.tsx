@@ -1,9 +1,7 @@
-// Sidebar.tsx
 import { useContext, useRef, useEffect } from "react";
 import { ThemeContext } from "@/contexts/ThemeContext";
 import navigationLinks from "../../config/navigation.json";
 import NavItem from "../NavItem/NavItem";
-import styles from "./Sidebar.module.css";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -32,11 +30,15 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
   return (
     <aside
       ref={sidebarRef}
-      className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}
+      className={`fixed top-0 right-0 h-full shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+        isOpen ? "translate-x-0" : "translate-x-full"
+      } w-64 p-6 flex flex-col items-center`}
+      style={{
+        backgroundColor: "var(--header-bg-color)",
+      }}
     >
-      {/* ... sidebar contents ... */}
-      <ul className={styles.navList}>
-        {/* Navigation Items */}
+      {/* Navigation List */}
+      <ul className="list-none w-full p-0 m-0">
         {navigationLinks.map((nav) => (
           <NavItem
             key={nav.href}
@@ -48,8 +50,15 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
         ))}
       </ul>
 
-      {/* Add the theme changer button in the sidebar */}
-      <button onClick={toggleTheme} className={styles.themeChanger}>
+      {/* Theme Toggle Button */}
+      <button
+        onClick={toggleTheme}
+        className="mt-auto py-2 px-4 rounded transition-colors duration-200 ease-in-out"
+        style={{
+          backgroundColor: "var(--signin-btn-bg-color)",
+          color: "var(--body-text-color)",
+        }}
+      >
         Switch to {theme === "light" ? "Dark" : "Light"} Theme
       </button>
     </aside>
