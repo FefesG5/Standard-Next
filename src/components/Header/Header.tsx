@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Sidebar from "../Sidebar/Sidebar";
@@ -19,6 +19,24 @@ const Header: React.FC = () => {
     setIsSidebarOpen(false);
   };
 
+  // Add event listener to handle window resizing
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        // If the screen is large (lg and above), automatically close the sidebar
+        setIsSidebarOpen(false);
+      }
+    };
+
+    // Add resize listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <header
       className={`${poppins.className} flex items-center justify-between py-6 px-6 shadow-md`}
@@ -27,12 +45,7 @@ const Header: React.FC = () => {
       {/* Logo Container */}
       <div>
         <Link href="/">
-          <Image
-            src="/next.svg" // Assuming you have a Next.js logo SVG in your public directory
-            alt="Next.js Logo"
-            width={128} // Adjust to the size of your actual logo
-            height={64} // Adjust to the size of your actual logo
-          />
+          <Image src="/next.svg" alt="Next.js Logo" width={128} height={64} />
         </Link>
       </div>
 
@@ -41,15 +54,17 @@ const Header: React.FC = () => {
         onClick={toggleSidebar}
         className="lg:hidden flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
       >
-        <Image src="/menu-icon.svg" alt="Menu Icon" width={32} height={32} />
+        <Image src="/menu-icon.svg" alt="Menu Icon" width={24} height={24} />
       </button>
 
       {/* Sidebar rendering */}
       {isSidebarOpen && (
-        <Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
+        <div className="fixed top-0 left-0 h-full w-64 bg-gray-800 p-6 transform transition-transform duration-300 ease-in-out lg:hidden">
+          <Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
+        </div>
       )}
 
-      {/* Navigation */}
+      {/* Navigation - Visible only on large screens */}
       <nav className="hidden lg:flex justify-end items-center w-full">
         <ul className="flex list-none p-0 m-0 ml-auto">
           {/* Navigation Items */}
@@ -58,14 +73,14 @@ const Header: React.FC = () => {
               key={nav.href}
               href={nav.href}
               label={nav.label}
-              variant={"header"}
+              variant="header"
               closeSidebar={closeSidebar}
             />
           ))}
         </ul>
       </nav>
 
-      {/* Theme Changer Button */}
+      {/* Theme Changer Button - Visible only on large screens */}
       <button
         onClick={toggleTheme}
         className="hidden lg:block bg-transparent cursor-pointer"
