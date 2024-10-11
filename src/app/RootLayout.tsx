@@ -14,9 +14,10 @@ export default function RootLayout({
       style={{
         backgroundImage: "var(--background-image)",
         backgroundSize: "cover",
-        backgroundPosition: "45% 50%",
+        backgroundPosition: "50% 50%",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed", // Prevents the zoom effect on the video uploads page
+        animation: "backgroundMove 70s ease-in-out infinite",
       }}
     >
       <Head>
@@ -29,6 +30,19 @@ export default function RootLayout({
         {children}
       </main>
       <Footer />
+      <style jsx global>{`
+        @keyframes backgroundMove {
+          0% {
+            background-position: 45% 50%;
+          }
+          50% {
+            background-position: 55% 50%;
+          }
+          100% {
+            background-position: 45% 50%;
+          }
+        }
+      `}</style>
     </div>
   );
 }
