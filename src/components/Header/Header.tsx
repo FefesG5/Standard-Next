@@ -39,8 +39,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`${poppins.className} flex items-center justify-between py-6 px-6 shadow-md`}
-      style={{ backgroundColor: "var(--header-bg-color)" }}
+      className={`${poppins.className} flex items-center justify-between py-6 px-6 shadow-md bg-[var(--header-bg-color)]`}
     >
       {/* Logo Container */}
       <div>
@@ -52,7 +51,7 @@ const Header: React.FC = () => {
       {/* Hamburger Icon for Smaller Screens */}
       <button
         onClick={toggleSidebar}
-        className="lg:hidden flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+        className="lg:hidden flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--body-text-color)]"
       >
         <Image src="/menu-icon.svg" alt="Menu Icon" width={24} height={24} />
       </button>
