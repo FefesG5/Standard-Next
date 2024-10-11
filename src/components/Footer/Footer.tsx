@@ -3,10 +3,7 @@ import { inter, poppins, roboto, cabin } from "@/app/ui/fonts";
 
 const Footer: React.FC = () => {
   return (
-    <footer
-      className="w-full py-4 flex justify-center items-center text-center text-gray-700"
-      style={{ backgroundColor: "var(--footer-bg-color)" }}
-    >
+    <footer className="w-full py-4 flex justify-center items-center text-center text-gray-700 bg-[var(--footer-bg-color)]">
       <div>
         Powered by{" "}
         <a
