@@ -30,12 +30,9 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
   return (
     <aside
       ref={sidebarRef}
-      className={`fixed top-0 right-0 h-full shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+      className={`fixed top-0 right-0 h-full shadow-lg z-50 transform transition-transform duration-300 ease-in-out bg-[var(--header-bg-color)] ${
         isOpen ? "translate-x-0" : "translate-x-full"
       } w-64 p-6 flex flex-col items-center`}
-      style={{
-        backgroundColor: "var(--header-bg-color)",
-      }}
     >
       {/* Navigation List */}
       <ul className="list-none w-full p-0 m-0">
@@ -54,10 +51,6 @@ const Sidebar = ({ isOpen, closeSidebar }: SidebarProps) => {
       <button
         onClick={toggleTheme}
         className="mt-auto py-2 px-4 rounded transition-colors duration-200 ease-in-out"
-        style={{
-          backgroundColor: "var(--signin-btn-bg-color)",
-          color: "var(--body-text-color)",
-        }}
       >
         Switch to {theme === "light" ? "Dark" : "Light"} Theme
       </button>
