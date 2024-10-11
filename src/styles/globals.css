@@ -24,11 +24,11 @@
 
 [data-theme="dark"] {
   /* Dark Theme Variables */
-  --header-bg-color: #1c3a4c;
-  --footer-bg-color: #1c3a4c;
-  --body-text-color: #eceff1;
+  --header-bg-color: #1e293b;
+  --footer-bg-color: #1e293b;
+  --body-text-color: #ffffff;
   --background-image: url("/background-theme-dark.webp");
-  --sidebar-bg-hover: #1c3a4c;
+  --sidebar-bg-hover: #243b53;
 
   --signin-container-bg-color: #455a64;
   --signin-btn-bg-color: #2196f3;
@@ -37,7 +37,7 @@
   --signin-input-border-color: #4f5b62;
   --signin-text-color: #eceff1;
 
-  --user-section-bg-color: #53687e;
+  --user-section-bg-color: #2a3e50;
   --error-message-text-color: #d74444;
 }
 
