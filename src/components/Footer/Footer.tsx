@@ -1,21 +1,22 @@
-import React from "react";
 import Image from "next/image";
-import styles from "./Footer.module.css";
 import { inter, poppins, roboto, cabin } from "@/app/ui/fonts";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={styles.footer}>
+    <footer
+      className="w-full py-4 flex justify-center items-center text-center text-gray-700"
+      style={{ backgroundColor: "var(--footer-bg-color)" }}
+    >
       <div>
         Powered by{" "}
-        <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">
-          <span className={styles.logo}>
-            <Image
-              src="/vercel.svg" // Make sure the Vercel logo is in your public folder
-              alt="Vercel Logo"
-              width={71} // Adjust to your logo's aspect ratio
-              height={16} // Adjust to your logo's aspect ratio
-            />
+        <a
+          href="https://vercel.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center"
+        >
+          <span className="ml-2">
+            <Image src="/vercel.svg" alt="Vercel Logo" width={71} height={16} />
           </span>
         </a>
       </div>
