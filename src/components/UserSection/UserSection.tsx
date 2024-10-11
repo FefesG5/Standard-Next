@@ -19,10 +19,10 @@ const UserSection: React.FC<UserSectionProps> = ({ user, signOutUser }) => {
           className="rounded-full border-2 border-gray-300 shadow-sm"
         />
         <div className="flex flex-col">
-          <h3 className="text-lg font-semibold text-gray-800">
+          <h3 className="text-lg font-semibold text-[var(--body-text-color)]">
             {user.displayName || "User"}
           </h3>
-          <p className="text-sm text-gray-500">{user.email}</p>
+          <p className="text-sm text-[var(--body-text-color)]">{user.email}</p>
         </div>
       </div>
       <SignOutButton signOutUser={signOutUser} />
