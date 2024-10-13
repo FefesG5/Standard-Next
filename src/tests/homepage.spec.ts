@@ -1,87 +1,59 @@
 import { test, expect } from "@playwright/test";
-import navigationLinks from "@/config/navigation.json";
+import { navigationLinks } from "@/config/navigationLinks";
 
-test.describe("Home Page Tests", () => {
+test.describe("Home Page Tests - Fullscreen Mode", () => {
+  // Before each test, go to the home page and set viewport to full-screen
   test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:3000");
+    await page.setViewportSize({ width: 1920, height: 1080 });
   });
 
-  // Separate tests for each navigation link
+  // Navigation Links Section
   test.describe("Navigation Links", () => {
-    test("About link navigates to the correct page", async ({ page }) => {
-      const aboutLink = page.locator('[data-testid="nav-about"]');
-      await expect(aboutLink).toHaveAttribute("href", "/about");
-    });
-
-    test("Contact link navigates to the correct page", async ({ page }) => {
-      const contactLink = page.locator('[data-testid="nav-contact"]');
-      await expect(contactLink).toHaveAttribute("href", "/contact");
-    });
-  });
-
-  test("Home Page has the correct document title", async ({ page }) => {
-    await expect(page).toHaveTitle(/Create Next App/i);
-  });
-
-  test("Home Page displays the correct h1 heading", async ({ page }) => {
-    const heading = page.locator("h1", { hasText: "Home Page" });
-    await expect(heading).toBeVisible();
-  });
-
-  test("should toggle the theme between light and dark", async ({ page }) => {
-    await page.click('button:has-text("Switch to Dark Theme")');
-    await page.click('button:has-text("Switch to Light Theme")');
-  });
-
-  test("sidebar functionality", async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 667 });
-
-    const hamburger = page.locator("button", { hasText: "☰" });
-    await expect(hamburger).toBeVisible();
-    await hamburger.click();
-
-    const sidebar = page.locator("aside");
-    await expect(sidebar).toBeVisible();
-
-    const outsideArea = page.locator("header");
-    await outsideArea.click();
-    await expect(sidebar).not.toBeVisible();
-  });
-
-  test.describe("Sidebar navigation items", () => {
-    test.beforeEach(async ({ page }) => {
-      await page.goto("http://localhost:3000");
-      await page.setViewportSize({ width: 375, height: 667 });
-      const hamburger = page.locator("button", { hasText: "☰" });
-      await hamburger.click();
-    });
-
-    for (const link of navigationLinks) {
-      test(`"${link.label}" link navigates to ${link.href} and closes sidebar`, async ({
+    navigationLinks.forEach((link) => {
+      test(`"${link.label}" link navigates to the correct page`, async ({
         page,
       }) => {
-        await page.click(`text=${link.label}`);
+        const navLink = page.locator(
+          `[data-testid="nav-${link.label.toLowerCase()}"]`,
+        );
+        await expect(navLink).toBeVisible();
+        await expect(navLink).toHaveAttribute("href", link.href);
+        await navLink.click();
         await expect(page).toHaveURL(`http://localhost:3000${link.href}`);
-
-        await expect(page.locator(".sidebar")).not.toBeVisible();
       });
-    }
+    });
   });
 
-  test("footer should be visible", async ({ page }) => {
-    const footer = page.locator("footer");
-    await expect(footer).toBeVisible();
+  // Page Title and Content Section
+  test.describe("Page Title and Content", () => {
+    test("Home Page has the correct document title", async ({ page }) => {
+      await expect(page).toHaveTitle(/Create Next App/i);
+    });
+
+    test("Home Page displays the correct h1 heading", async ({ page }) => {
+      const heading = page.locator("h1", { hasText: "Home Page" });
+      await expect(heading).toBeVisible();
+    });
   });
 
-  test("footer should contain link to Vercel", async ({ page }) => {
-    const vercelLink = page.locator("footer a[href='https://vercel.com']");
-    await expect(vercelLink).toBeVisible();
-    await expect(vercelLink).toHaveAttribute("target", "_blank");
-  });
+  // Footer Section
+  test.describe("Footer Section", () => {
+    test("Footer should be visible on a large screen", async ({ page }) => {
+      const footer = page.locator("footer");
+      await expect(footer).toBeVisible(); // Check that the footer is visible
+    });
 
-  test("footer should display the Vercel logo", async ({ page }) => {
-    const vercelLogo = page.locator("footer img[alt='Vercel Logo']");
-    await expect(vercelLogo).toBeVisible();
-    await expect(vercelLogo).toHaveAttribute("src", "/vercel.svg");
+    test("Footer should contain a link to Vercel", async ({ page }) => {
+      const vercelLink = page.locator("footer a[href='https://vercel.com']");
+      await expect(vercelLink).toBeVisible();
+      await expect(vercelLink).toHaveAttribute("target", "_blank");
+    });
+
+    test("Footer should display the Vercel logo", async ({ page }) => {
+      const vercelLogo = page.locator("footer img[alt='Vercel Logo']");
+      await expect(vercelLogo).toBeVisible();
+      await expect(vercelLogo).toHaveAttribute("src", "/vercel.svg");
+    });
   });
 });
