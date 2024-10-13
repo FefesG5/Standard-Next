@@ -21,6 +21,18 @@ test.describe("Home Page Tests - Header and Footer (Mobile View)", () => {
     });
   });
 
+  // Page Title and Content Section
+  test.describe("Page Title and Content", () => {
+    test("Home Page has the correct document title", async ({ page }) => {
+      await expect(page).toHaveTitle(/Create Next App/i);
+    });
+
+    test("Home Page displays the correct h1 heading", async ({ page }) => {
+      const heading = page.locator("h1", { hasText: "Home Page" });
+      await expect(heading).toBeVisible();
+    });
+  });
+
   // Footer Section
   test.describe("Footer Section", () => {
     test("Footer should be visible on a mobile screen", async ({ page }) => {
