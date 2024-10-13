@@ -19,6 +19,27 @@ test.describe("Home Page Tests - Fullscreen Mode", () => {
       await logo.click();
       await expect(page).toHaveURL("http://localhost:3000");
     });
+
+    test("Theme switch button should toggle between light and dark themes", async ({
+      page,
+    }) => {
+      const themeButton = page.locator(
+        "button:has-text('Switch to Dark Theme')",
+      );
+      await expect(themeButton).toBeVisible();
+
+      // Click to switch to dark theme
+      await themeButton.click();
+      await expect(page.locator("body")).toHaveAttribute("data-theme", "dark");
+
+      // Click to switch back to light theme
+      const themeButtonLight = page.locator(
+        "button:has-text('Switch to Light Theme')",
+      );
+      await expect(themeButtonLight).toBeVisible();
+      await themeButtonLight.click();
+      await expect(page.locator("body")).toHaveAttribute("data-theme", "light");
+    });
   });
 
   // Navigation Links Section
@@ -54,7 +75,7 @@ test.describe("Home Page Tests - Fullscreen Mode", () => {
   test.describe("Footer Section", () => {
     test("Footer should be visible on a large screen", async ({ page }) => {
       const footer = page.locator("footer");
-      await expect(footer).toBeVisible(); // Check that the footer is visible
+      await expect(footer).toBeVisible();
     });
 
     test("Footer should contain a link to Vercel", async ({ page }) => {
@@ -62,7 +83,6 @@ test.describe("Home Page Tests - Fullscreen Mode", () => {
       await expect(vercelLink).toBeVisible();
       await expect(vercelLink).toHaveAttribute("target", "_blank");
 
-      await vercelLink.click();
       const [newPage] = await Promise.all([
         page.context().waitForEvent("page"),
         vercelLink.click(),
