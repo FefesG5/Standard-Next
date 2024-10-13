@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="w-full py-4 flex justify-center items-center text-center text-gray-700 bg-[var(--footer-bg-color)]">
       <div>
-        Powered by{" "}
+        <span className={`${poppins.className} text-sm mr-2`}>Powered by</span>
         <a
           href="https://vercel.com"
           target="_blank"
