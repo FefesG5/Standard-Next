@@ -71,7 +71,6 @@ test.describe("Home Page Tests - Header and Footer (Mobile View)", () => {
       await expect(menuIcon).toBeVisible();
       await menuIcon.click();
 
-      // Verify each navigation link is functional
       for (const link of navigationLinks) {
         const navLink = page.locator(`aside a:has-text('${link.label}')`);
         await expect(navLink).toBeVisible();
