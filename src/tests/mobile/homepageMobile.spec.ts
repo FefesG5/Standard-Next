@@ -29,6 +29,12 @@ test.describe("Home Page Tests - Header and Footer (Mobile View)", () => {
       await menuIcon.click();
       const sidebar = page.locator("aside");
       await expect(sidebar).toBeVisible();
+
+      // Close the sidebar by clicking the close button inside the sidebar
+      const closeButton = page.locator("button:has(img[alt='Close Sidebar'])");
+      await expect(closeButton).toBeVisible();
+      await closeButton.click();
+      await expect(sidebar).not.toBeVisible();
     });
   });
 
