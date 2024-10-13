@@ -36,6 +36,31 @@ test.describe("Home Page Tests - Header and Footer (Mobile View)", () => {
       await closeButton.click();
       await expect(sidebar).not.toBeVisible();
     });
+
+    test("Theme switch button should toggle between light and dark themes", async ({
+      page,
+    }) => {
+      const menuIcon = page.locator("button:has(img[alt='Menu Icon'])");
+      await expect(menuIcon).toBeVisible();
+
+      await menuIcon.click();
+      const themeButton = page.locator(
+        "aside button:has-text('Switch to Dark Theme')",
+      );
+      await expect(themeButton).toBeVisible();
+
+      // Click to switch to dark theme
+      await themeButton.click();
+      await expect(page.locator("body")).toHaveAttribute("data-theme", "dark");
+
+      // Click to switch back to light theme
+      const themeButtonLight = page.locator(
+        "aside button:has-text('Switch to Light Theme')",
+      );
+      await expect(themeButtonLight).toBeVisible();
+      await themeButtonLight.click();
+      await expect(page.locator("body")).toHaveAttribute("data-theme", "light");
+    });
   });
 
   // Page Title and Content Section
@@ -62,7 +87,6 @@ test.describe("Home Page Tests - Header and Footer (Mobile View)", () => {
       await expect(vercelLink).toBeVisible();
       await expect(vercelLink).toHaveAttribute("target", "_blank");
 
-      await vercelLink.click();
       const [newPage] = await Promise.all([
         page.context().waitForEvent("page"),
         vercelLink.click(),
