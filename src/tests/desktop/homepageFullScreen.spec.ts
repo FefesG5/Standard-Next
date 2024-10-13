@@ -8,6 +8,19 @@ test.describe("Home Page Tests - Fullscreen Mode", () => {
     await page.setViewportSize({ width: 1920, height: 1080 });
   });
 
+  // Header Section
+  test.describe("Header Section", () => {
+    test("Logo should be visible and navigate to the home page", async ({
+      page,
+    }) => {
+      const logo = page.locator("a[href='/'] img[alt='Next.js Logo']");
+      await expect(logo).toBeVisible();
+
+      await logo.click();
+      await expect(page).toHaveURL("http://localhost:3000");
+    });
+  });
+
   // Navigation Links Section
   test.describe("Navigation Links", () => {
     navigationLinks.forEach((link) => {
@@ -48,6 +61,14 @@ test.describe("Home Page Tests - Fullscreen Mode", () => {
       const vercelLink = page.locator("footer a[href='https://vercel.com']");
       await expect(vercelLink).toBeVisible();
       await expect(vercelLink).toHaveAttribute("target", "_blank");
+
+      await vercelLink.click();
+      const [newPage] = await Promise.all([
+        page.context().waitForEvent("page"),
+        vercelLink.click(),
+      ]);
+      await newPage.waitForLoadState();
+      await expect(newPage).toHaveURL(/https:\/\/vercel\.com/);
     });
 
     test("Footer should display the Vercel logo", async ({ page }) => {
