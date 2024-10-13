@@ -1,8 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { navigationLinks } from "@/config/navigationLinks";
 
-// Home Page Tests focusing for mobile view
-test.describe("Home Page Tests - Header and Footer (Mobile View)", () => {
+test.describe("Home Page Tests - (Mobile View)", () => {
   // Before each test, navigate to the home page and set the viewport to mobile size
   test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:3000");
