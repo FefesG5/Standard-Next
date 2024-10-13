@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { navigationLinks } from "@/config/navigationLinks";
 
-test.describe("Home Page Tests - Fullscreen Mode", () => {
-  // Before each test, go to the home page and set viewport to full-screen
+test.describe("Home Page Tests - (Fullscreen Mode)", () => {
+  // Before each test, navigate to the home page and set viewport to full-screen
   test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:3000");
     await page.setViewportSize({ width: 1920, height: 1080 });
