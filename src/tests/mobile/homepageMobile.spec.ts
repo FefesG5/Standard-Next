@@ -19,6 +19,17 @@ test.describe("Home Page Tests - Header and Footer (Mobile View)", () => {
       await logo.click();
       await expect(page).toHaveURL("http://localhost:3000");
     });
+
+    test("Menu icon should be visible and open the sidebar", async ({
+      page,
+    }) => {
+      const menuIcon = page.locator("button:has(img[alt='Menu Icon'])");
+      await expect(menuIcon).toBeVisible();
+
+      await menuIcon.click();
+      const sidebar = page.locator("aside");
+      await expect(sidebar).toBeVisible();
+    });
   });
 
   // Page Title and Content Section
