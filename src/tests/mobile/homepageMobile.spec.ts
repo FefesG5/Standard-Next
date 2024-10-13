@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { navigationLinks } from "@/config/navigationLinks";
 
 // Home Page Tests focusing for mobile view
 test.describe("Home Page Tests - Header and Footer (Mobile View)", () => {
@@ -60,6 +61,24 @@ test.describe("Home Page Tests - Header and Footer (Mobile View)", () => {
       await expect(themeButtonLight).toBeVisible();
       await themeButtonLight.click();
       await expect(page.locator("body")).toHaveAttribute("data-theme", "light");
+    });
+
+    // Navigation Links Section
+    test("Navigation links should be visible and functional after the menu icon is pressed", async ({
+      page,
+    }) => {
+      const menuIcon = page.locator("button:has(img[alt='Menu Icon'])");
+      await expect(menuIcon).toBeVisible();
+      await menuIcon.click();
+
+      // Verify each navigation link is functional
+      for (const link of navigationLinks) {
+        const navLink = page.locator(`aside a:has-text('${link.label}')`);
+        await expect(navLink).toBeVisible();
+        await navLink.click();
+        await expect(page).toHaveURL(`http://localhost:3000${link.href}`);
+        await menuIcon.click(); // Reopen sidebar for the next link
+      }
     });
   });
 
