@@ -4,15 +4,20 @@ import UserSection from "../UserSection/UserSection";
 import { User } from "firebase/auth";
 import { dashboardNav } from "@/config/dashBoardNav";
 
-type DashboardProps = {
+type DashboardLayoutProps = {
   signOutUser: () => Promise<void>;
   user: User;
+  children: React.ReactNode; // Allows embedding content inside the layout
 };
 
-const Dashboard = ({ signOutUser, user }: DashboardProps) => {
+const DashboardLayout = ({
+  signOutUser,
+  user,
+  children,
+}: DashboardLayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Distinct UserSection bar under the header */}
+      {/* UserSection bar under the header */}
       <div className="w-full bg-white shadow-md">
         <UserSection user={user} signOutUser={signOutUser} />
       </div>
@@ -41,12 +46,14 @@ const Dashboard = ({ signOutUser, user }: DashboardProps) => {
             ))}
           </ul>
         </nav>
+
+        {/* Main Content Area */}
         <main className="flex-1 p-4 bg-[var(--main-content-bg-color)]">
-          {/* Main content goes here */}
+          {children}
         </main>
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardLayout;
