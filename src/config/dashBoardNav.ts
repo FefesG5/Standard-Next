@@ -4,25 +4,25 @@ export type NavItem = {
   icon: string;
 };
 
-export const dashboardNav: NavItem[] = [
+export const dashboardNav = [
   {
-    href: "/dashboard/home",
+    href: "/access/dashboard",
     label: "Home",
     icon: "/dashboard-icon.svg",
   },
   {
-    href: "/dashboard/profile",
-    label: "Profile",
-    icon: "/person-outline-icon.svg",
+    href: "/access/dashboard/upload",
+    label: "Upload Files",
+    icon: "/upload-file-icon.svg",
   },
   {
-    href: "/dashboard/settings",
-    label: "Settings",
-    icon: "/settings-icon.svg",
+    href: "/access/dashboard/schedule",
+    label: "Generate Schedule",
+    icon: "/create-schedule-icon.svg",
   },
   {
-    href: "/dashboard/help",
-    label: "Help",
-    icon: "/help-icon.svg",
+    href: "/access/dashboard/edit",
+    label: "Review & Edit",
+    icon: "/edit-schedule-icon.svg",
   },
 ];
