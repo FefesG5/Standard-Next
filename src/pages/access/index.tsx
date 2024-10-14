@@ -1,23 +1,11 @@
 import DashboardLayout from "@/components/Dashboard/DashboardLayout";
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
-import { useEffect, useState } from "react";
-import { app } from "../../../firebase.config";
+import useAuth from "@/hooks/useAuth";
 import Spinner from "@/components/Spinner/Spinner";
 import SignIn from "@/components/SignIn/SignIn";
+import { getAuth } from "firebase/auth";
 
 export default function AccessIndex() {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const auth = getAuth(app);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, [auth]);
+  const { user, loading } = useAuth();
 
   if (loading) {
     return <Spinner />;
@@ -26,6 +14,8 @@ export default function AccessIndex() {
   if (!user) {
     return <SignIn />;
   }
+
+  const auth = getAuth(); // Get the authentication instance for signOut
 
   return (
     <DashboardLayout user={user} signOutUser={() => auth.signOut()}>
