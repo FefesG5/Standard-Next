@@ -4,9 +4,9 @@ export type NavItem = {
   icon: string;
 };
 
-export const dashboardNav = [
+export const dashboardNav: NavItem[] = [
   {
-    href: "/access/dashboard",
+    href: "/access/",
     label: "Home",
     icon: "/dashboard-icon.svg",
   },
