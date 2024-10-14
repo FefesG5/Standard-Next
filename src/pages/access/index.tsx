@@ -1,6 +1,6 @@
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { app } from "../../firebase.config";
+import { app } from "../../../firebase.config";
 import Spinner from "@/components/Spinner/Spinner";
 import SignIn from "@/components/SignIn/SignIn";
 import Dashboard from "@/components/Dashboard/Dashboard"; // Import Dashboard
